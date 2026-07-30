@@ -293,16 +293,17 @@
   <script>
     function updateClock() {
       const now = new Date();
-      const formatter = new Intl.DateTimeFormat("en-GB", {
-        hour: "2-digit",
-        minute: "2-digit",
-        hour12: false,
-        timeZoneName: "short",
-        weekday: "long",
-        month: "short",
-        day: "numeric",
-        year: "numeric"
-      });
+      const formatter = new Intl.DateTimeFormat("en-US", {
+  timeZone: "America/Los_Angeles",
+  hour: "2-digit",
+  minute: "2-digit",
+  hour12: false,
+  timeZoneName: "short",
+  weekday: "long",
+  month: "short",
+  day: "numeric",
+  year: "numeric"
+});
 
       const parts = formatter.formatToParts(now);
       const map = Object.fromEntries(parts.map(part => [part.type, part.value]));
